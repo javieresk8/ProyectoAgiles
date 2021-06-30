@@ -1,8 +1,13 @@
 package com.company;
-
+import GestionEstudiantes.ListaEstudiantes;
+import InterfazSistema.GUI;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        new GUI().render();
+
+       // ListaEstudiantes li = new ListaEstudiantes();
+        //System.out.println(li.buscarEstudiante("1755041595").getCedula());
+
     }
 }
