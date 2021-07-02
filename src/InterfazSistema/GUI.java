@@ -62,7 +62,34 @@ public class GUI {
 
                 case 2:
                     //Caso de uso registrar salario docente
+                    String cedulaDocente;
+                    System.out.println("==============Registrar Pago Salario Docente =============================");
+                    System.out.println("Ingrese la cédula del Docente");
+                    cedulaDocente = scanner.next();
+                    System.out.printf("Ingresó la cédula # %s%n", cedulaDocente);
+                    formulario.ingresarValores(cedulaDocente);
+                    if (formulario.solicitarValidacionCedulaDocente()){
+                        String numeroCuenta;
+                        String nombreBanco;
 
+                        //Ingresa los valores del numero de cuenta
+                        System.out.printf("Docente con cédula: %s%n", cedulaDocente, "EXISTE...");
+                        System.out.println("Ingrese el Número de Cuenta del Docente del Banco");
+                        numeroCuenta = scanner.next();
+                        formulario.ingresarValores(numeroCuenta);
+                        System.out.println("Ingrese el Nombre del Banco de la Cuenta del Docente");
+                        nombreBanco = scanner.next();
+                        formulario.ingresarValores(nombreBanco);
+                        //Solicita almacenar el salario
+                        formulario.solicitarGestorSalario();
+                        System.out.println("El pago del salario se ha registrado correctamente...");
+
+                    } else {
+                        System.out.println("Cédula de Docente no existe en los registros...");
+                    }
+
+                    //Vacía el formulario
+                    formulario.limpiarValores();
             }
 
         }
