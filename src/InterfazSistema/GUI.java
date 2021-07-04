@@ -59,6 +59,7 @@ public class GUI {
 
                     //Vacía el formulario
                     formulario.limpiarValores();
+                    break;
 
                 case 2:
                     //Caso de uso registrar salario docente
@@ -90,6 +91,7 @@ public class GUI {
 
                     //Vacía el formulario
                     formulario.limpiarValores();
+                    break;
             }
 
         }

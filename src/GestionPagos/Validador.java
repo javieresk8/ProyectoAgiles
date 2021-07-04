@@ -4,12 +4,9 @@ import GestionEstudiantes.Estudiante;
 
 public class Validador {
     private String valor;
-    private GestorPagos gestor;
     private Estudiante estudiante;
 
     public Validador(){
-        //this.valor = valor;
-        gestor = new GestorPagos();
         estudiante = new Estudiante();
     }
 
