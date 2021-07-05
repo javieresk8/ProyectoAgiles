@@ -1,6 +1,7 @@
 package GestionSalario;
 
 import GestionPagos.PagoMatricula;
+import InterfazSistema.GUI;
 
 import java.util.Scanner;
 
@@ -17,8 +18,10 @@ public class GestorSalario {
         pagoSalario = new PagoSalario(numeroCuenta,banco);
         pagoSalario.efectuarPago();
         System.out.println("Ingrese el concepto del pago del salario");
-        Scanner input = new Scanner(System.in);
-        pagoSalario.setConcepto(input.nextLine());
+        //Scanner input = new Scanner(System.in);
+        String input = GUI.detallePagoDocentePrueba;
+        //pagoSalario.setConcepto(input.nextLine());
+        pagoSalario.setConcepto(input);
         confirmarPago(pagoSalario);
     }
     public void confirmarPago(PagoSalario salario){
