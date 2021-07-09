@@ -18,6 +18,10 @@ public class Estudiante {
 
     }
 
+    public boolean validarCedula(String cedula){
+        return obtenerCedula(cedula) != null;
+    }
+
     public String obtenerCedula(String cedula){
         ListaEstudiantes listaEstudiantes = new ListaEstudiantes();
 
@@ -31,5 +35,6 @@ public class Estudiante {
     public String getCedula(){
         return this.cedula;
     }
+
 
 }

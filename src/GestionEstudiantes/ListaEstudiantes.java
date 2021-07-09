@@ -27,10 +27,8 @@ public class ListaEstudiantes {
 
     public Estudiante buscarEstudiante(String cedula){
         for (Estudiante e: listaEstudiantes) {
-
             if (e.getCedula().equals(cedula)){
                 return e;
-
             }
         }
         return null;

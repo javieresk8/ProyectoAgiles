@@ -13,12 +13,8 @@ public class GestorPagos {
     public void registrarPago(String numeroPago, String nombreBanco){
         pagoMatricula = new PagoMatricula(numeroPago, nombreBanco);
         pagoMatricula.pagar();
-        confirmarPago(pagoMatricula);
+        db.agregarPagoMatricula(pagoMatricula);
         //System.out.println(db.toString());
     }
 
-    public void confirmarPago(PagoMatricula pago){
-        db.agregarPagoMatricula(pago);
-
-    }
 }
