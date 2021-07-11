@@ -17,6 +17,9 @@ public class Docente {
 
     public Docente() {
     }
+    public boolean validarCedula(String cedula){
+        return obtenerCedula(cedula) != null;
+    }
     public String obtenerCedula(String cedula){
         ListaDocentes listaDocentes = new ListaDocentes();
 
@@ -35,6 +38,7 @@ public class Docente {
         }
         return null;
     }
+
     public String getCedula() {
         return cedula;
     }

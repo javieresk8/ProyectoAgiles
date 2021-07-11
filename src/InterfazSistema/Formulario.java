@@ -1,5 +1,6 @@
 package InterfazSistema;
 
+import GestionDocentes.Docente;
 import GestionEstudiantes.Estudiante;
 import GestionPagos.GestorPagos;
 import GestionSalario.GestorSalario;
@@ -8,16 +9,16 @@ import java.util.Vector;
 
 public class Formulario {
     private Vector inputValues;
-    private GestionSalario.Validador validadorSalario;
     private GestorPagos gestorPagos;
     private Estudiante estudiante;
+    private Docente docente;
     private GestorSalario gestorSalario;
     public Formulario(){
         inputValues = new Vector();
         gestorPagos = new GestorPagos();
         estudiante= new Estudiante();
-        validadorSalario = new GestionSalario.Validador();
         gestorSalario = new GestorSalario();
+        docente = new Docente();
     }
     public void ingresarValores(String valor){
         inputValues.addElement(valor);
@@ -33,7 +34,7 @@ public class Formulario {
     }
     public boolean solicitarValidacionCedulaDocente(){
         String valor = String.valueOf(this.inputValues.elementAt(0));
-        return  validadorSalario.validarCedula(valor);
+        return  docente.validarCedula(valor);
     }
 
     public void solicitarGestorPago(){

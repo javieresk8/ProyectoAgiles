@@ -1,6 +1,5 @@
 package GestionSalario;
 
-import GestionPagos.PagoMatricula;
 import InterfazSistema.GUI;
 
 import java.util.Scanner;
@@ -22,9 +21,7 @@ public class GestorSalario {
         String input = GUI.detallePagoDocentePrueba;
         //pagoSalario.setConcepto(input.nextLine());
         pagoSalario.setConcepto(input);
-        confirmarPago(pagoSalario);
+        db.agregarPagoSalario(pagoSalario);
     }
-    public void confirmarPago(PagoSalario salario){
-        db.agregarPagoSalario(salario);
-    }
+
 }
