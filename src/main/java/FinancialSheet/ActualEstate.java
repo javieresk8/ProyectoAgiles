@@ -24,19 +24,22 @@ public class ActualEstate implements Estate{
     public double addLoss(double value){
         return this.loss += value;
     }
-    public double calculateTotal() {
+
+    public double calculateTotalBusiness() {
         double temp;
-        temp = this.businessAccount + this.loss + this.capitalAccount;
+        temp = -(this.businessAccount - this.loss);
         return temp;
     }
-    public boolean validateTotal() {
-        double temp = this.businessAccount + this.capitalAccount + this.loss;
-        if (temp > 0){
-            return true;
-        }else {
-            return false;
-        }
+    @Override
+    public double calculateTotalCapital(){
+        double temp;
+        temp = this.capitalAccount - this.loss;
+        return temp;
 
+    }
+    @Override
+    public boolean validateTotal() {
+        return this.loss + this.businessAccount + this.capitalAccount > 0;
     }
     // Getters and Setters
     public double getCapitalAccount() {

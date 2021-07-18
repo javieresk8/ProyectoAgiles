@@ -13,9 +13,26 @@ public class ActualEstateTest {
         ae = new ActualEstate();
     }
     @Test
-    public void isSameReferenceTest(){
-    assertNotSame(capitalAccount,businessAccount);
+    public void given_three_double_when_calculateTotal_then_ok(){
+    ae.addBusinessAccount(50.00);
+    ae.addCapitalAccount(50.00);
+    ae.addLoss(10.00);
+    double business = ae.calculateTotalBusiness();
+    double capital = ae.calculateTotalCapital();
+    assertNotEquals(business,capital);
     }
-
-
+    @Test
+    public void when_validateTotal_then_ok(){
+        ae.setLoss(100);
+        ae.setCapitalAccount(300);
+        ae.setBusinessAccount(300);
+        ae.validateTotal();
+        String control;
+        if(ae.validateTotal()){
+            control="Exito";
+        }else{
+            control=null;
+        }
+        assertNotNull(control);
+    }
 }

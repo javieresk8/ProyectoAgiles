@@ -15,8 +15,30 @@ public class FinancialStatement {
     private ArrayList<Estate> estates;
     private double totalEstates;
 
-    public FinancialStatement(TangibleProperty tangibleProperty, CurrentAssets currentAssets,
-                              IBankAccount IBankAccount, double totalAssets, ArrayList<Asset> assets, ActualEstate actualEstate, CurrentLiability currentLiability, ArrayList<Liability> liabilities, double totalLiabilities, double totalEstates) {
+    public FinancialSheet.IBankAccount getIBankAccount() {
+        return IBankAccount;
+    }
+
+    public void setIBankAccount(FinancialSheet.IBankAccount IBankAccount) {
+        this.IBankAccount = IBankAccount;
+    }
+
+    public ArrayList<Liability> getLiabilities() {
+        return liabilities;
+    }
+
+    public void setLiabilities(ArrayList<Liability> liabilities) {
+        this.liabilities = liabilities;
+    }
+
+    public void setEstates(ArrayList<Estate> estates) {
+        this.estates = estates;
+    }
+
+    public FinancialStatement(ArrayList<Estate> estates, TangibleProperty tangibleProperty, CurrentAssets currentAssets,
+                              IBankAccount IBankAccount, double totalAssets, ArrayList<Asset> assets, ActualEstate actualEstate,
+                              CurrentLiability currentLiability, ArrayList<Liability> liabilities, double totalLiabilities,
+                              double totalEstates) {
         this.tangibleProperty = tangibleProperty;
         this.currentAssets = currentAssets;
         this.IBankAccount = IBankAccount;
@@ -27,13 +49,14 @@ public class FinancialStatement {
         this.liabilities = liabilities;
         this.totalLiabilities = totalLiabilities;
         this.totalEstates = totalEstates;
+        this.estates=estates;
     }
 
     public FinancialStatement() {
         this.tangibleProperty = new TangibleProperty();
         this.currentAssets = new CurrentAssets();
         this.assets = new ArrayList<>();
-
+        this.estates = new ArrayList<>();
     }
 
     //Getters and Setters
@@ -110,6 +133,24 @@ public class FinancialStatement {
         this.assets = assets;
     }
 
+    public ArrayList<Estate> getEstates() {
+        return estates;
+    }
+
+    public FinancialStatement(TangibleProperty tangibleProperty, CurrentAssets currentAssets, FinancialSheet.IBankAccount IBankAccount, double totalAssets, ArrayList<Asset> assets, ActualEstate actualEstate, CurrentLiability currentLiability, ArrayList<Liability> liabilities, double totalLiabilities, ArrayList<Estate> estates, double totalEstates) {
+        this.tangibleProperty = tangibleProperty;
+        this.currentAssets = currentAssets;
+        this.IBankAccount = IBankAccount;
+        this.totalAssets = totalAssets;
+        this.assets = assets;
+        this.actualEstate = actualEstate;
+        this.currentLiability = currentLiability;
+        this.liabilities = liabilities;
+        this.totalLiabilities = totalLiabilities;
+        this.estates = estates;
+        this.totalEstates = totalEstates;
+    }
+
     public boolean validateTotal() {
         return this.tangibleProperty.calculateTotal() +
                 this.currentAssets.calculateTotal() > 0;
@@ -132,7 +173,7 @@ public class FinancialStatement {
     public double calculateTotalEstate(){
         double total = 0;
         for(Estate e: estates){
-            total+=e.calculateTotal();
+            total+=e.calculateTotalCapital();
         }
         return total;
     }
@@ -142,6 +183,7 @@ public class FinancialStatement {
     public void addEstate(Estate estate){
         estates.add(estate);
     }
+
     public void addLiability(Liability liability){
         liabilities.add(liability);
     }

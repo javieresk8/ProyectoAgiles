@@ -1,6 +1,7 @@
 package FinancialSheet;
 
 public interface Estate {
-    double calculateTotal();
+    double calculateTotalCapital();
+    double calculateTotalBusiness();
     boolean validateTotal();
 }

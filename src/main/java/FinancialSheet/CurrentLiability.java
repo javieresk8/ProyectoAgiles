@@ -19,13 +19,7 @@ public class CurrentLiability implements Liability {
 
 
     public boolean validateTotal() {
-        double temp = this.accountPayable;
-        if(temp>0){
-            return true;
-        }else{
-            return false;
-        }
-
+        return this.accountPayable > 0;
     }
 
     public double getAccountPayable() {
