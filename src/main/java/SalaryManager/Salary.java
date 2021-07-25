@@ -15,8 +15,7 @@ public class Salary {
         this.moneyPerHour = moneyPerHour;
     }
 
-    public Salary() {
-    }
+
 
     public Salary(String cedula, IHolidaySchedule holidaySchedule, IDigitalClock digitalClock,
                   IMedicalCertificate medicalCertificate, double moneyPerHour) {
@@ -52,7 +51,7 @@ public class Salary {
             //System.out.println("Todos: "+record.getDay() + record.getTimeStart() + " " + record.getTimeEnd());
            //System.out.println("size =" + records.size());
             if(record.getTimeStart() == 0.0 && record.getTimeEnd() ==0.0){
-                System.out.println("fuera de if: "+record.getDay());
+                //System.out.println("fuera de if: "+record.getDay());
                 //Verifica que no este en los registros de fechas feriado o permiso medico
                 //Retorna true si el dia esta NO esta justificado, false caso contrario
                 holidayFlag = holidaySchedule.validateHoliday(record);
@@ -77,30 +76,5 @@ public class Salary {
         return hoursWorked * this.moneyPerHour;
     }
 
-    //Getters y setters
 
-
-    public void setValue(double value) {
-        this.value = value;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    public void setHolidaySchedule(IHolidaySchedule holidaySchedule) {
-        this.holidaySchedule = holidaySchedule;
-    }
-
-    public void setDigitalClock(IDigitalClock digitalClock) {
-        this.digitalClock = digitalClock;
-    }
-
-    public void setMedicalCertificate(IMedicalCertificate medicalCertificate) {
-        this.medicalCertificate = medicalCertificate;
-    }
-
-    public void setMoneyPerHour(double moneyPerHour) {
-        this.moneyPerHour = moneyPerHour;
-    }
 }
