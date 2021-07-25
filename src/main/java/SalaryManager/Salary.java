@@ -15,7 +15,11 @@ public class Salary {
         this.moneyPerHour = moneyPerHour;
     }
 
-    public Salary(String cedula, IHolidaySchedule holidaySchedule, IDigitalClock digitalClock, IMedicalCertificate medicalCertificate, double moneyPerHour) {
+    public Salary() {
+    }
+
+    public Salary(String cedula, IHolidaySchedule holidaySchedule, IDigitalClock digitalClock,
+                  IMedicalCertificate medicalCertificate, double moneyPerHour) {
 
         this.cedula = cedula;
         this.holidaySchedule = holidaySchedule;
@@ -71,5 +75,32 @@ public class Salary {
         double hoursWorked;
         hoursWorked = calculateHours(recordsProfessor);
         return hoursWorked * this.moneyPerHour;
+    }
+
+    //Getters y setters
+
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setHolidaySchedule(IHolidaySchedule holidaySchedule) {
+        this.holidaySchedule = holidaySchedule;
+    }
+
+    public void setDigitalClock(IDigitalClock digitalClock) {
+        this.digitalClock = digitalClock;
+    }
+
+    public void setMedicalCertificate(IMedicalCertificate medicalCertificate) {
+        this.medicalCertificate = medicalCertificate;
+    }
+
+    public void setMoneyPerHour(double moneyPerHour) {
+        this.moneyPerHour = moneyPerHour;
     }
 }
