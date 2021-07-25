@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SalaryTest {
     String cedula = "1755041595";
@@ -22,6 +22,7 @@ public class SalaryTest {
         salary = new Salary(cedula, moneyPerHour);
         //records = new ArrayList<>();
         //System.out.println("setup");
+
     }
 
 
@@ -41,10 +42,38 @@ public class SalaryTest {
         assertEquals(8.5*3, salary.calculateHours(records), 0);
     }
 
-    public void given_one_ClockRecord_when_validateHoliday_then_return_true(){
-        IHolidaySchedule schedule = Mockito.mock(IHolidaySchedule.class);
-        Mockito.when(schedule.validateHoliday(Mockito.any())).thenReturn(true);
-        //assertTrue(schedule.validateHoliday(day, month, year));
+    @Test
+    public void given_one_ArrayList_when_validateDates_then_return_true(){
+        IDigitalClock clock  = Mockito.mock(IDigitalClock.class);
+        IHolidaySchedule holidayValidator = Mockito.mock((IHolidaySchedule.class));
+        IMedicalCertificate certificateValidator = Mockito.mock(IMedicalCertificate.class);
+        ClockRecord record = new ClockRecord("1755041595", 2021, 23, 7, 8.5, 17.0);
+        ClockRecord record2 = new ClockRecord("1755041595", 2021, 24, 7, 8.5, 17.0);
+        ClockRecord record3 = new ClockRecord("1755041595", 2021, 22, 7, 8.5, 17.0);
+        ClockRecord missingDay = new ClockRecord("1755041595", 2021, 26, 7, 0.0, 0.0);
+        ClockRecord holiday = new ClockRecord("1755041595", 2021, 25, 7, 0.0, 0.0);
+
+        ArrayList<ClockRecord> records = new ArrayList<>();
+        records.add(record);
+        records.add(record2);
+        records.add(record3);
+        records.add(missingDay);
+        records.add(holiday);
+        //System.out.println("Lenght =" + records.size());
+        ArrayList<ClockRecord> recordsCleaned = new ArrayList<>();
+        recordsCleaned.add(record);
+        recordsCleaned.add(record2);
+        recordsCleaned.add(record3);
+
+        Mockito.when(clock.getWorkScheduleProfessor(cedula)).thenReturn(records);
+        //System.out.println("Lenght2 =" + records.size());
+        //Simulacion de validacion de medical y holiday
+        Mockito.when(holidayValidator.validateHoliday(holiday)).thenReturn(true);
+        Mockito.when(certificateValidator.validateDateCerticate(missingDay)).thenReturn(true);
+
+        Salary salaryComplete = new Salary(cedula, holidayValidator,  clock,certificateValidator, 8.5);
+
+        assertEquals(recordsCleaned, salaryComplete.validateDates(records));
     }
 
 //    @Test
