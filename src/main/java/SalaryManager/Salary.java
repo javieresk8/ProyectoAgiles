@@ -48,17 +48,14 @@ public class Salary {
         boolean medicalFlag = false;
         for (ClockRecord record :
                 records) {
-            //System.out.println("Todos: "+record.getDay() + record.getTimeStart() + " " + record.getTimeEnd());
-           //System.out.println("size =" + records.size());
+
             if(record.getTimeStart() == 0.0 && record.getTimeEnd() ==0.0){
-                //System.out.println("fuera de if: "+record.getDay());
                 //Verifica que no este en los registros de fechas feriado o permiso medico
                 //Retorna true si el dia esta NO esta justificado, false caso contrario
                 holidayFlag = holidaySchedule.validateHoliday(record);
                 medicalFlag = medicalCertificate.validateDateCerticate(record);
             }
             if(!holidayFlag && !medicalFlag){
-                //System.out.println("encontro a record holiday: "+record.getDay());
                 datesValidated.add(record);
             }
 

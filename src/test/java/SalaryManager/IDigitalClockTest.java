@@ -24,7 +24,6 @@ public class IDigitalClockTest {
         records.add(record3);
         records.add(missingDay);
         records.add(holiday);
-        //Simula que retorna todos los registros
         Mockito.when(clock.getWorkScheduleProfessor(cedula)).thenReturn(records);
         assertEquals(records, clock.getWorkScheduleProfessor(cedula));
     }
