@@ -62,4 +62,14 @@ public class Salary {
         }
         return datesValidated;
     }
+
+
+    public double calculateTotal(String cedula) {
+        ArrayList<ClockRecord> recordsProfessor;
+        recordsProfessor = (ArrayList<ClockRecord>) digitalClock.getWorkScheduleProfessor(cedula).clone();
+        recordsProfessor = (ArrayList<ClockRecord>) validateDates(recordsProfessor).clone();
+        double hoursWorked;
+        hoursWorked = calculateHours(recordsProfessor);
+        return hoursWorked * this.moneyPerHour;
+    }
 }

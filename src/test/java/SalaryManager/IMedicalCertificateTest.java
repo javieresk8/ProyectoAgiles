@@ -20,7 +20,7 @@ public class IMedicalCertificateTest {
     }
 
     @Test
-    public void given_three_integers_when_validateDateCertificate_then_return_true(){
+    public void given_one_ClockRecord_when_validateDateCertificate_then_return_true(){
         ClockRecord record = new ClockRecord("1755041595", 2021, 26, 7, 0.0, 0.0);
         IMedicalCertificate certificate = Mockito.mock(IMedicalCertificate.class);
         Mockito.when(certificate.validateDateCerticate(record)).thenReturn(true);
