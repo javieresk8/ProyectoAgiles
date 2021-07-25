@@ -3,7 +3,6 @@ package SalaryManager;
 import java.util.ArrayList;
 
 public class Salary {
-    private double value;
     private String cedula;
     private IHolidaySchedule holidaySchedule;
     private IDigitalClock digitalClock;
@@ -15,8 +14,6 @@ public class Salary {
         this.moneyPerHour = moneyPerHour;
     }
 
-
-
     public Salary(String cedula, IHolidaySchedule holidaySchedule, IDigitalClock digitalClock,
                   IMedicalCertificate medicalCertificate, double moneyPerHour) {
 
@@ -25,10 +22,6 @@ public class Salary {
         this.digitalClock = digitalClock;
         this.medicalCertificate = medicalCertificate;
         this.moneyPerHour = moneyPerHour;
-    }
-
-    public String getCedula() {
-        return cedula;
     }
 
     public double calculateHours(ArrayList<ClockRecord> records) {
@@ -48,30 +41,30 @@ public class Salary {
         boolean medicalFlag = false;
         for (ClockRecord record :
                 records) {
-
             if(record.getTimeStart() == 0.0 && record.getTimeEnd() ==0.0){
                 //Verifica que no este en los registros de fechas feriado o permiso medico
-                //Retorna true si el dia esta NO esta justificado, false caso contrario
+                //Retorna true si el dia esta NO esta justificado,
+                // false caso contrario
                 holidayFlag = holidaySchedule.validateHoliday(record);
                 medicalFlag = medicalCertificate.validateDateCerticate(record);
             }
             if(!holidayFlag && !medicalFlag){
                 datesValidated.add(record);
             }
-
         }
         return datesValidated;
     }
 
-
     public double calculateTotal(String cedula) {
-        ArrayList<ClockRecord> recordsProfessor;
-        recordsProfessor = (ArrayList<ClockRecord>) digitalClock.getWorkScheduleProfessor(cedula).clone();
+        ArrayList<ClockRecord> recordsProfessor = (ArrayList<ClockRecord>) digitalClock.getWorkScheduleProfessor(cedula).clone();
         recordsProfessor = (ArrayList<ClockRecord>) validateDates(recordsProfessor).clone();
         double hoursWorked;
         hoursWorked = calculateHours(recordsProfessor);
-        return hoursWorked * this.moneyPerHour;
+        return calculateMoney(hoursWorked);
     }
 
+    private double calculateMoney(double hoursWorked) {
+        return hoursWorked * this.moneyPerHour;
+    }
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="FinancialSheet.CurrentAssetsTest" time="0" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="FinancialSheet.CurrentAssetsTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.1.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -58,7 +58,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="FinancialSheet.CurrentAssetsTest" name="given_one_double_when_addPettyCashValue_then_ok" time="0"/>
+  <testcase classname="FinancialSheet.CurrentAssetsTest" name="given_one_double_when_addPettyCashValue_then_ok" time="0.001"/>
   <testcase classname="FinancialSheet.CurrentAssetsTest" name="when_validateTotal_then_ok" time="0"/>
   <testcase classname="FinancialSheet.CurrentAssetsTest" name="when_calculateTotal_then_ok" time="0"/>
   <testcase classname="FinancialSheet.CurrentAssetsTest" name="given_one_double_when_addInventoryValue_then_ok" time="0"/>
