@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="FinancialSheet.FinancialStatementParametersTest" time="0" errors="0" skipped="0">
+<testsuite tests="5" failures="0" name="FinancialSheet.FinancialStatementParametersTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2021.1.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -60,7 +60,7 @@
   </properties>
   <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[0]" time="0"/>
   <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[1]" time="0"/>
-  <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[2]" time="0"/>
+  <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[2]" time="0.001"/>
   <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[3]" time="0"/>
   <testcase classname="FinancialSheet.FinancialStatementParametersTest" name="given_parameters_when_addAsset_then_error[4]" time="0"/>
 </testsuite>
